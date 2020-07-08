@@ -1,8 +1,7 @@
-name: carousel_pro
-description: A Flutter Carousel Slider widget. Support Network and Asset Images. You can modify the UI according your design easily.
+name: carousel_extended
+description: A Flutter Carousel Slider widget based on carousel_pro. Also support navigating sliders. 
 version: 1.0.0
-author: JLouage (Julien Louage) <info@jlouage.com>
-homepage: https://github.com/jlouage/flutter-carousel-pro
+homepage: https://github.com/omidh28/flutter-carousel-extended
 
 environment:
   sdk: '>=2.0.0 <3.0.0'

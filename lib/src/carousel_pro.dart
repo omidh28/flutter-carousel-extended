@@ -94,6 +94,9 @@ class Carousel extends StatefulWidget {
   //On image change event, passes previous image index and current image index as arguments
   final void Function(int, int) onImageChange;
 
+  /// using it to programmatically navigate between slides
+  final PageController pageController;
+
   Carousel({
     this.images,
     this.animationCurve = Curves.ease,
@@ -122,6 +125,7 @@ class Carousel extends StatefulWidget {
     this.onImageTap,
     this.onImageChange,
     this.defaultImage,
+    @required this.pageController,
   });
 
   @override
@@ -131,7 +135,6 @@ class Carousel extends StatefulWidget {
 class CarouselState extends State<Carousel> {
   Timer timer;
   int _currentImageIndex = 0;
-  PageController _controller = PageController();
 
   @override
   void initState() {
@@ -140,15 +143,15 @@ class CarouselState extends State<Carousel> {
     if (widget.images != null && widget.images.isNotEmpty) {
       if (widget.autoplay) {
         timer = Timer.periodic(widget.autoplayDuration, (_) {
-          if (_controller.hasClients) {
-            if (_controller.page.round() == widget.images.length - 1) {
-              _controller.animateToPage(
+          if (widget.pageController.hasClients) {
+            if (widget.pageController.page.round() == widget.images.length - 1) {
+              widget.pageController.animateToPage(
                 0,
                 duration: widget.animationDuration,
                 curve: widget.animationCurve,
               );
             } else {
-              _controller.nextPage(
+              widget.pageController.nextPage(
                   duration: widget.animationDuration,
                   curve: widget.animationCurve);
             }
@@ -160,8 +163,7 @@ class CarouselState extends State<Carousel> {
 
   @override
   void dispose() {
-    _controller.dispose();
-    _controller = null;
+    widget.pageController.dispose();
     timer?.cancel();
     timer = null;
     super.dispose();
@@ -313,7 +315,7 @@ class CarouselState extends State<Carousel> {
             builder: (_) {
               Widget pageView = PageView(
                 physics: AlwaysScrollableScrollPhysics(),
-                controller: _controller,
+                controller: widget.pageController,
                 children: listImages,
                 onPageChanged: (currentPage) {
                   if (widget.onImageChange != null) {
@@ -361,7 +363,7 @@ class CarouselState extends State<Carousel> {
                   padding: EdgeInsets.all(widget.indicatorBgPadding),
                   child: Center(
                     child: DotsIndicator(
-                      controller: _controller,
+                      controller: widget.pageController,
                       itemCount: listImages.length,
                       color: widget.dotColor,
                       increasedColor: widget.dotIncreasedColor,
@@ -369,7 +371,7 @@ class CarouselState extends State<Carousel> {
                       dotSpacing: widget.dotSpacing,
                       dotIncreaseSize: widget.dotIncreaseSize,
                       onPageSelected: (int page) {
-                        _controller.animateToPage(
+                        widget.pageController.animateToPage(
                           page,
                           duration: widget.animationDuration,
                           curve: widget.animationCurve,

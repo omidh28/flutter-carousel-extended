@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+import 'package:carousel_extended/carousel_extended.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -18,6 +18,7 @@ class CarouselPage extends StatelessWidget {
           height: 150.0,
           width: 300.0,
           child: Carousel(
+            pageController: PageController(),
             boxFit: BoxFit.cover,
             autoplay: false,
             animationCurve: Curves.fastOutSlowIn,

@@ -24,6 +24,7 @@ SizedBox(
   height: 150.0,
   width: 300.0,
   child: Carousel(
+    pageController: PageController(),
     images: [
       NetworkImage('https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg'),
       NetworkImage('https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
@@ -48,6 +49,7 @@ SizedBox(
       NetworkImage('https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
       ExactAssetImage("assets/images/LaunchImage.jpg")
     ],
+    pageController: PageController(),
     dotSize: 4.0,
     dotSpacing: 15.0,
     dotColor: Colors.lightGreenAccent,
@@ -74,6 +76,7 @@ SizedBox(
         NetworkImage('https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
         ExactAssetImage("assets/images/LaunchImage.jpg")
       ],
+      pageController: PageController(),
       dotSize: 4.0,
       dotSpacing: 15.0,
       dotColor: Colors.lightGreenAccent,
@@ -102,6 +105,7 @@ SizedBox(
         NetworkImage('https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
         ExactAssetImage("assets/images/LaunchImage.jpg")
       ],
+      pageController: PageController(),
       dotSize: 4.0,
       dotSpacing: 15.0,
       dotColor: Colors.lightGreenAccent,
@@ -133,6 +137,7 @@ SizedBox(
         NetworkImage('https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
         ExactAssetImage("assets/images/LaunchImage.jpg")
       ],
+      pageController: PageController(),
       showIndicator: false,
       borderRadius: false,
       moveIndicatorFromBottom: 180.0,
@@ -270,10 +275,17 @@ Enable/Disable autoplay carousel
 The autoplay transition duration
 **Type:** Duration 
 **Default value:** 3s
+
+### pageController
+The slider controller
+**Type:** PageController 
+**Default value:** null
+
   
 ## Credits
 
 Developed by [JLouage (Julien Louage)](http://www.jlouage.com) <info@jlouage.com>
+Extended by [Omid Habibi]
 
 ## Contributing
 
