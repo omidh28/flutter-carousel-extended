@@ -1,10 +1,10 @@
-# Carousel Pro [![pub package](https://img.shields.io/pub/v/carousel_pro.svg)](https://pub.dartlang.org/packages/carousel_pro)
+# Carousel Extended [![pub package](https://img.shields.io/pub/v/carousel_extended.svg)](https://pub.dartlang.org/packages/carousel_extended)
 
 A Flutter Carousel widget.
 
 ## Usage
 
-As simple as using any flutter Widget.
+As simple as using any flutter Widget. Based on Carousel Pro but extended to be able to navigate between slides programmatically.
 
 **Example:**
 Add the module to your project ``pubspec.yaml``:
@@ -12,12 +12,12 @@ Add the module to your project ``pubspec.yaml``:
 ...
 dependencies:
  ...
- carousel_pro: ^1.0.0
+ carousel_extended: ^1.0.0+1
 ...
 ```
 And install it using ``flutter packages get`` on your project folder. After that, just import the module and use it:
 ```dart
-import 'package:carousel_pro/carousel_pro.dart';
+import 'package:carousel_extended/carousel_extended.dart';
 
 //...
 SizedBox(
