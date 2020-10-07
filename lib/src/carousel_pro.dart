@@ -95,7 +95,10 @@ class Carousel extends StatefulWidget {
   final void Function(int, int) onImageChange;
 
   /// using it to programmatically navigate between slides
-  final PageController pageController;
+  PageController pageController;
+
+  /// whether to dispose controller or not
+  bool shouldDispose = true;
 
   Carousel({
     this.images,
@@ -125,8 +128,13 @@ class Carousel extends StatefulWidget {
     this.onImageTap,
     this.onImageChange,
     this.defaultImage,
-    @required this.pageController,
-  });
+    this.pageController,
+  }) {
+    if (pageController == null) {
+      shouldDispose = true;
+      pageController = PageController();
+    }
+  }
 
   @override
   State createState() => CarouselState();
@@ -144,7 +152,8 @@ class CarouselState extends State<Carousel> {
       if (widget.autoplay) {
         timer = Timer.periodic(widget.autoplayDuration, (_) {
           if (widget.pageController.hasClients) {
-            if (widget.pageController.page.round() == widget.images.length - 1) {
+            if (widget.pageController.page.round() ==
+                widget.images.length - 1) {
               widget.pageController.animateToPage(
                 0,
                 duration: widget.animationDuration,
@@ -163,7 +172,9 @@ class CarouselState extends State<Carousel> {
 
   @override
   void dispose() {
-    widget.pageController.dispose();
+    if (widget.shouldDispose) {
+      widget.pageController.dispose();
+    }
     timer?.cancel();
     timer = null;
     super.dispose();

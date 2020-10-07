@@ -1,6 +1,6 @@
 name: carousel_extended
 description: A Flutter Carousel Slider widget based on carousel_pro. Also support navigating sliders. 
-version: 1.1.0
+version: 1.1.0+1
 homepage: https://github.com/omidh28/flutter-carousel-extended
 
 environment:
