@@ -1,3 +1,7 @@
+## [1.2.0]
+
+* Passing controller is not required anymore
+
 ## [1.1.0+1]
 
 * Minor fix

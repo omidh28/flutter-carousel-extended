@@ -98,7 +98,7 @@ class Carousel extends StatefulWidget {
   PageController pageController;
 
   /// whether to dispose controller or not
-  bool shouldDispose = true;
+  bool shouldDispose = false;
 
   Carousel({
     this.images,
